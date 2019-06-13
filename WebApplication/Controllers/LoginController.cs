@@ -17,6 +17,7 @@ namespace WebApplication.Controllers
         [HttpPost]
         public ActionResult Login(Login login)
         {
+
             return View();
         }
     }
