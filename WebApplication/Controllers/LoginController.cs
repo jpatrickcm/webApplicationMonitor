@@ -12,13 +12,22 @@ namespace WebApplication.Controllers
         // GET: Login
         public ActionResult Login()
         {
-            return View();
+            var model = new Login();
+            model.mensaje = "" + TempData["mensaje"];
+            return View(model);
         }
         [HttpPost]
         public ActionResult Login(Login login)
         {
-
-            return View();
+            if (login.username.Equals("Monitor2019") && login.password.Equals("Operaciones2019"))
+            {
+                return RedirectToAction("Index", "Menu");
+            }
+            else
+            {
+                TempData["mensaje"] = "Usuario y/o contraseña errados";
+                return RedirectToAction("Login", "Login");
+            }
         }
     }
 }

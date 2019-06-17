@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ANULACIONES</h2>
+
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="form-group">
+
+
+                <input type="text" name="fechaInicio" value="" />
+                <input type="text" name="fechaFin" value="" />
+                <select name="empresa">
+                    <option value="value">text</option>
+                </select>
+                <input type="text" name="fechaInicio" value="" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <input class="btn btn-default" type="button" name="buscar" value="Buscar" />
+            </div>
+        </div>
+        <div class="row">
+            <a class="btn btn-info" href="menu">Volver</a>
+        </div>
+
+        <div class="row">
+
+        </div>
+
+    }
+    </div>

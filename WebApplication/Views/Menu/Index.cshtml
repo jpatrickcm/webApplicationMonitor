@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="container">
+
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "form-menu-id" }))
+    {
+        <div class="row">
+
+
+            <a href="anulaciones">Anulaciones</a>
+            <a href="envios">Envios</a>
+
+        </div>
+
+        <div class="row">
+
+
+            <div class="col-sm-6 col-sm-offset-3">
+                <a class="btn btn-info" href="login">Salir</a>
+                @*<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-info" value="Salir">*@
+            </div>
+
+        </div>
+    }
+</div>
+
+

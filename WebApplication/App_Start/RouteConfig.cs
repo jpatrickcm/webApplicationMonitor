@@ -31,6 +31,26 @@ namespace WebApplication
                 defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
             );
 
+
+            routes.MapRoute(
+                name: "Menu",
+                url: "menu/",
+                defaults: new { controller = "Menu", action = "Index", id = UrlParameter.Optional }
+            );
+
+
+            routes.MapRoute(
+                name: "Anulaciones",
+                url: "anulaciones/",
+                defaults: new { controller = "MenuAnulaciones", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Envios",
+                url: "envios/",
+                defaults: new { controller = "MenuEnvios", action = "Index", id = UrlParameter.Optional }
+            );
+
         }
     }
 }
