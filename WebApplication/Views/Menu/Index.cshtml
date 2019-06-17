@@ -9,22 +9,28 @@
 
     @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "form-menu-id" }))
     {
-        <div class="row">
-
-
-            <a href="anulaciones">Anulaciones</a>
-            <a href="envios">Envios</a>
-
+    <div class="row">
+        <div class="col-md-4 col-md-offset-1">
+            <div class="thumbnail">
+                <a href="anulaciones">
+                    <img src="~/Content/img/anulaciones.png" />
+                </a>
+            </div>
         </div>
 
-        <div class="row">
-
-
-            <div class="col-sm-6 col-sm-offset-3">
-                <a class="btn btn-info" href="login">Salir</a>
-                @*<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-info" value="Salir">*@
+        <div class="col-md-4 col-md-offset-1">
+            <div class="thumbnail">
+                <a href="envios">
+                    <img src="~/Content/img/envios.png" />
+                </a>
             </div>
+        </div>
+    </div>
 
+        <div class="row  text-center">
+            <div class="col-md-12">
+                <a class="btn btn-info" href="login">Salir</a>
+            </div>
         </div>
     }
 </div>

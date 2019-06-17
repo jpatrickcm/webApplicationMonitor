@@ -13,16 +13,10 @@ namespace WebApplication
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //routes.MapRoute(
-            //    name: "Default",
-            //    url: "{controller}/{action}/{id}",
-            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            //);
-
             routes.MapRoute(
                 name: "Default",
                 url: "",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
@@ -31,13 +25,11 @@ namespace WebApplication
                 defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
             );
 
-
             routes.MapRoute(
                 name: "Menu",
                 url: "menu/",
                 defaults: new { controller = "Menu", action = "Index", id = UrlParameter.Optional }
             );
-
 
             routes.MapRoute(
                 name: "Anulaciones",
