@@ -15,15 +15,16 @@ namespace WebApplication.Controllers
             return View();
         }
 
-
         [HttpPost]
         public ActionResult Index(MenuAnulaciones menuAnulaciones)
         {
-
-            AnulacionesService.reporteAnulaciones();
-
-
-            return View();
+            if ( menuAnulaciones.fechaInicio != null && menuAnulaciones.fechaFinal != null && menuAnulaciones.empresa != null)
+            {
+                menuAnulaciones.listaCpe = AnulacionesService.reporteAnulaciones();
+                menuAnulaciones.listaCpeBoletas = AnulacionesService.consultaBoletasAnulaciones();
+                menuAnulaciones.listaCpeRetePerce = AnulacionesService.consultaRetePerceAnulaciones();
+            }
+            return View("Index", menuAnulaciones);
         }
     }
 }

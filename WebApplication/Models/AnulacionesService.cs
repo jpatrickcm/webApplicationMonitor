@@ -14,6 +14,17 @@ namespace WebApplication.Models
             return listado;
         }
 
+        public static List<Cpe> consultaBoletasAnulaciones()
+        {
+            List<Cpe> listado = DBContext.consultaCpeBoletasAnulaciones();
+            return listado;
+        }
+        public static List<Cpe> consultaRetePerceAnulaciones()
+        {
+            List<Cpe> listado = DBContext.consultaCpeRetePerceAnulaciones();
+            return listado;
+        }
+
 
     }
 }

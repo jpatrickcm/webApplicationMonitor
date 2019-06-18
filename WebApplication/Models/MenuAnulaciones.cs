@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace WebApplication.Models
 {
@@ -18,6 +19,9 @@ namespace WebApplication.Models
         public string empresa { get; set; }
 
 
+        public List<Cpe> listaCpe { get; set; }
+        public List<Cpe> listaCpeBoletas { get; set; }
+        public List<Cpe> listaCpeRetePerce { get; set; }
 
     }
 }

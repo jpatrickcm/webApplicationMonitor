@@ -5,6 +5,12 @@
     ViewBag.Title = "Index";
 }
 
+<style>
+    /*.form-inline .form-group > * {
+        margin: 5px 30px !important;
+    }*/
+</style>
+
 <h2>ANULACIONES</h2>
 
 
@@ -14,30 +20,38 @@
         <div class="row">
             <div class="form-inline">
                 <div class="form-group">
-                    @Html.LabelFor(model => model.fechaInicio, htmlAttributes: new { @class = "" })
-                    @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.LabelFor(model => model.fechaFinal, htmlAttributes: new { @class = "" })
-                    @Html.EditorFor(model => model.fechaFinal, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.LabelFor(model => model.empresa, htmlAttributes: new { @class = "" })
-                    @Html.DropDownList("empresa", new List<SelectListItem>
-                    {
-                       new SelectListItem{ Text="DIGIFLOW", Value = "esuiteDIGIFLOW" }
-                    }, htmlAttributes : new { @class = "form-control" }
-                    )
+                    @*<div class="col-md-4">*@
+                        @Html.LabelFor(model => model.fechaInicio, htmlAttributes: new { @class = "control-labele" })
+                        @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.fechaInicio, "", new { @class = "text-danger" })
+                    @*</div>
+                    <div class="col-md-4">*@
+                        @Html.LabelFor(model => model.fechaFinal, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.fechaFinal, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.fechaFinal, "", new { @class = "text-danger" })
+                    @*</div>
+                    <div class="col-md-4">*@
+                        @Html.LabelFor(model => model.empresa, htmlAttributes: new { @class = "control-label" })
+                        @Html.DropDownList("empresa", new List<SelectListItem>
+                        {
+                           new SelectListItem{ Text="DIGIFLOW", Value = "esuiteDIGIFLOW" }
+                        }, htmlAttributes : new { @class = "form-control" }
+                        )
+                    @*</div>*@
                 </div>
             </div>
         </div>
         <br />
         <div class="row">
             <div class="form-group">
-                <input class="btn btn-info col-md-offset-7" type="button" name="buscar" value="Buscar" />
+                <input class="btn btn-info col-md-offset-10" type="submit" name="buscar" value="Buscar" />
             </div>
         </div>
 
 
         <div class="row">
             <div class="form-group">
-                <a class="btn btn-default col-md-offset-7" href="menu">Volver</a>
+                <a class="btn btn-default col-md-offset-10" href="menu">Volver</a>
             </div>
         </div>
 
@@ -79,6 +93,28 @@
                                     <td>CODIGO EMPRESA</td>
                                     <td>MENSAJE</td>
                                 </tr>
+
+                                @if (Model != null)
+                                {
+                                    if (Model.listaCpe != null)
+                                    {
+                                        foreach (WebApplication.Models.Cpe objCpe in Model.listaCpe)
+                                        {
+                                            <tr>
+                                                <td>@objCpe.RUC.ToString()</td>
+                                                <td>@objCpe.Comprobante.ToString()</td>
+                                                <td>@objCpe.Serie.ToString()</td>
+                                                <td>@objCpe.Correlativo.ToString()</td>
+                                                <td>@objCpe.FechaEmision.ToString()</td>
+                                                <td>@objCpe.FechaCarga.ToString()</td>
+                                                <td>@objCpe.Estado.ToString()</td>
+                                                <td>@objCpe.CodigoEmpresa.ToString()</td>
+                                                <td>@objCpe.Mensaje.ToString()</td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+
                             </tbody>
                         </table>
                     </div>
@@ -100,17 +136,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>20510675411</td>
-                                    <td>BOLETA</td>
-                                    <td>F001</td>
-                                    <td>1234</td>
-                                    <td>12/06/2019</td>
-                                    <td>15/06/2019</td>
-                                    <td>DOK</td>
-                                    <td>CODIGO EMPRESA</td>
-                                    <td>MENSAJE</td>
-                                </tr>
+                                @if (Model != null)
+                                {
+                                    if (Model.listaCpe != null)
+                                    {
+                                        foreach (WebApplication.Models.Cpe objCpe in Model.listaCpeBoletas)
+                                        {
+                                            <tr>
+                                                <td>@objCpe.RUC.ToString()</td>
+                                                <td>@objCpe.Comprobante.ToString()</td>
+                                                <td>@objCpe.Serie.ToString()</td>
+                                                <td>@objCpe.Correlativo.ToString()</td>
+                                                <td>@objCpe.FechaEmision.ToString()</td>
+                                                <td>@objCpe.FechaCarga.ToString()</td>
+                                                <td>@objCpe.Estado.ToString()</td>
+                                                <td>@objCpe.CodigoEmpresa.ToString()</td>
+                                                <td>@objCpe.Mensaje.ToString()</td>
+                                            </tr>
+                                        }
+                                    }
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -132,17 +177,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>20510675411</td>
-                                    <td>RETENCION</td>
-                                    <td>F001</td>
-                                    <td>1234</td>
-                                    <td>12/06/2019</td>
-                                    <td>15/06/2019</td>
-                                    <td>DOK</td>
-                                    <td>CODIGO EMPRESA</td>
-                                    <td>MENSAJE</td>
-                                </tr>
+                                @if (Model != null)
+                                {
+                                    if (Model.listaCpe != null)
+                                    {
+                                        foreach (WebApplication.Models.Cpe objCpe in Model.listaCpeRetePerce)
+                                        {
+                                            <tr>
+                                                <td>@objCpe.RUC.ToString()</td>
+                                                <td>@objCpe.Comprobante.ToString()</td>
+                                                <td>@objCpe.Serie.ToString()</td>
+                                                <td>@objCpe.Correlativo.ToString()</td>
+                                                <td>@objCpe.FechaEmision.ToString()</td>
+                                                <td>@objCpe.FechaCarga.ToString()</td>
+                                                <td>@objCpe.Estado.ToString()</td>
+                                                <td>@objCpe.CodigoEmpresa.ToString()</td>
+                                                <td>@objCpe.Mensaje.ToString()</td>
+                                            </tr>
+                                        }
+                                    }
+                                }
                             </tbody>
                         </table>
                     </div>
