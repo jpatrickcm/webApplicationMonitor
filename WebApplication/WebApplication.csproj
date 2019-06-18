@@ -128,6 +128,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AnulacionesService.cs" />
+    <Compile Include="Models\Cpe.cs" />
+    <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\MenuAnulaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

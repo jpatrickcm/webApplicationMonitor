@@ -14,13 +14,12 @@
         <div class="row">
             <div class="form-inline">
                 <div class="form-group">
-
                     @Html.LabelFor(model => model.fechaInicio, htmlAttributes: new { @class = "" })
                     @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.LabelFor(model => model.fechaFinal, htmlAttributes: new { @class = "" })
                     @Html.EditorFor(model => model.fechaFinal, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.LabelFor(model => model.empresa, htmlAttributes: new { @class = "" })
-                    @Html.DropDownList("EmailComercial", new List<SelectListItem>
+                    @Html.DropDownList("empresa", new List<SelectListItem>
                     {
                        new SelectListItem{ Text="DIGIFLOW", Value = "esuiteDIGIFLOW" }
                     }, htmlAttributes : new { @class = "form-control" }
