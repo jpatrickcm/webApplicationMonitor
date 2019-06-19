@@ -8,9 +8,9 @@ namespace WebApplication.Models
     public class AnulacionesService
     {
 
-        public static List<Cpe> reporteAnulaciones()
+        public static List<Cpe> reporteAnulaciones(string empresa)
         {
-            List<Cpe> listado = DBContext.consultaCpeAnulaciones();
+            List<Cpe> listado = DBContext.ConsultaCpeAnulaciones(empresa);
             return listado;
         }
 

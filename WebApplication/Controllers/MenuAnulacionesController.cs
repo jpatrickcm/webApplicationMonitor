@@ -20,7 +20,7 @@ namespace WebApplication.Controllers
         {
             if ( menuAnulaciones.fechaInicio != null && menuAnulaciones.fechaFinal != null && menuAnulaciones.empresa != null)
             {
-                menuAnulaciones.listaCpe = AnulacionesService.reporteAnulaciones();
+                menuAnulaciones.listaCpe = AnulacionesService.reporteAnulaciones(menuAnulaciones.empresa);
                 menuAnulaciones.listaCpeBoletas = AnulacionesService.consultaBoletasAnulaciones();
                 menuAnulaciones.listaCpeRetePerce = AnulacionesService.consultaRetePerceAnulaciones();
             }

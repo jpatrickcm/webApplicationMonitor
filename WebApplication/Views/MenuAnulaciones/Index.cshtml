@@ -2,17 +2,10 @@
 
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Monitor";
 }
 
-<style>
-    /*.form-inline .form-group > * {
-        margin: 5px 30px !important;
-    }*/
-</style>
-
 <h2>ANULACIONES</h2>
-
 
 <div class="container">
     @using (Html.BeginForm("Index", "MenuAnulaciones", FormMethod.Post, new { id = "form-anulaciones-id" }))
@@ -20,24 +13,18 @@
         <div class="row">
             <div class="form-inline">
                 <div class="form-group">
-                    @*<div class="col-md-4">*@
                         @Html.LabelFor(model => model.fechaInicio, htmlAttributes: new { @class = "control-labele" })
                         @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.fechaInicio, "", new { @class = "text-danger" })
-                    @*</div>
-                    <div class="col-md-4">*@
                         @Html.LabelFor(model => model.fechaFinal, htmlAttributes: new { @class = "control-label" })
                         @Html.EditorFor(model => model.fechaFinal, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.fechaFinal, "", new { @class = "text-danger" })
-                    @*</div>
-                    <div class="col-md-4">*@
                         @Html.LabelFor(model => model.empresa, htmlAttributes: new { @class = "control-label" })
                         @Html.DropDownList("empresa", new List<SelectListItem>
                         {
                            new SelectListItem{ Text="DIGIFLOW", Value = "esuiteDIGIFLOW" }
                         }, htmlAttributes : new { @class = "form-control" }
                         )
-                    @*</div>*@
                 </div>
             </div>
         </div>
@@ -48,13 +35,11 @@
             </div>
         </div>
 
-
         <div class="row">
             <div class="form-group">
                 <a class="btn btn-default col-md-offset-10" href="menu">Volver</a>
             </div>
         </div>
-
 
         <div class="row">
 
@@ -82,17 +67,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>20510675411</td>
-                                    <td>FACTURA</td>
-                                    <td>F001</td>
-                                    <td>1234</td>
-                                    <td>12/06/2019</td>
-                                    <td>15/06/2019</td>
-                                    <td>DOK</td>
-                                    <td>CODIGO EMPRESA</td>
-                                    <td>MENSAJE</td>
-                                </tr>
 
                                 @if (Model != null)
                                 {
@@ -114,7 +88,6 @@
                                         }
                                     }
                                 }
-
                             </tbody>
                         </table>
                     </div>
@@ -252,7 +225,6 @@
                 </table>
             </div>
         </div>
-
 
         <div class="row">
 

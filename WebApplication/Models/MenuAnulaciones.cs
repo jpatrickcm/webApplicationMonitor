@@ -18,7 +18,6 @@ namespace WebApplication.Models
         [Display(Name = "Empresa")]
         public string empresa { get; set; }
 
-
         public List<Cpe> listaCpe { get; set; }
         public List<Cpe> listaCpeBoletas { get; set; }
         public List<Cpe> listaCpeRetePerce { get; set; }
