@@ -1,6 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace WebApplication.Models
 {
@@ -17,6 +18,8 @@ namespace WebApplication.Models
         [Required(ErrorMessage = "Seleccione Empresa")]
         [Display(Name = "Empresa")]
         public string empresa { get; set; }
+
+        public SelectList empresaList { get; set; }
 
         public List<Cpe> listaCpe { get; set; }
         public List<Cpe> listaCpeBoletas { get; set; }

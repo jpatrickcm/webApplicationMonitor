@@ -12,19 +12,26 @@ namespace WebApplication.Controllers
         // GET: MenuAnulaciones
         public ActionResult Index()
         {
+            listadoEmpresa();
             return View();
         }
 
         [HttpPost]
         public ActionResult Index(MenuAnulaciones menuAnulaciones)
         {
+            listadoEmpresa();
             if ( menuAnulaciones.fechaInicio != null && menuAnulaciones.fechaFinal != null && menuAnulaciones.empresa != null)
             {
-                menuAnulaciones.listaCpe = AnulacionesService.reporteAnulaciones(menuAnulaciones.empresa);
-                menuAnulaciones.listaCpeBoletas = AnulacionesService.consultaBoletasAnulaciones();
-                menuAnulaciones.listaCpeRetePerce = AnulacionesService.consultaRetePerceAnulaciones();
+                menuAnulaciones.listaCpe = AnulacionesService.reporteAnulaciones(menuAnulaciones.fechaInicio, menuAnulaciones.fechaFinal, menuAnulaciones.empresa);
+                menuAnulaciones.listaCpeBoletas = AnulacionesService.consultaBoletasAnulaciones(menuAnulaciones.fechaInicio, menuAnulaciones.fechaFinal, menuAnulaciones.empresa);
+                menuAnulaciones.listaCpeRetePerce = AnulacionesService.consultaRetePerceAnulaciones(menuAnulaciones.fechaInicio, menuAnulaciones.fechaFinal, menuAnulaciones.empresa);
             }
             return View("Index", menuAnulaciones);
         }
+
+        private void listadoEmpresa() {
+            ViewBag.listadoEmpresa = AnulacionesService.ListadoEmpresas();
+        }
+
     }
 }
