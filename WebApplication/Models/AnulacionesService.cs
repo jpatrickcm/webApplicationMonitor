@@ -14,6 +14,16 @@ namespace WebApplication.Models
             DBContext.ReprocesarPorCpe(fechaInicio, fechaFinal, empresa, comprobante);
         }
 
+        public static void reprocesarPorCpeBoletas(string fechaInicio, string fechaFinal, string empresa, Cpe comprobante)
+        {
+            DBContext.ReprocesarPorCpeBoletas(fechaInicio, fechaFinal, empresa, comprobante);
+        }
+
+        public static void reprocesarPorCpeRetePerce(string fechaInicio, string fechaFinal, string empresa, Cpe comprobante)
+        {
+            DBContext.ReprocesarPorCpeRetePerce(fechaInicio, fechaFinal, empresa, comprobante);
+        }
+
         public static List<Cpe> reporteAnulaciones(string fechaInicio, string fechaFinal, string empresa)
         {
             List<Cpe> listado = DBContext.ConsultaCpeAnulaciones(fechaInicio, fechaFinal, empresa);

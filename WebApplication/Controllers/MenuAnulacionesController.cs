@@ -30,6 +30,20 @@ namespace WebApplication.Controllers
                     {
                         AnulacionesService.reprocesarPorCpe(menuAnulaciones.fechaInicio, menuAnulaciones.fechaFinal, menuAnulaciones.empresa, comprobante);
                     }
+                    if (!string.Empty.Equals(menuAnulaciones.listaCpeBoletasPorReprocesar))
+                    {
+                        foreach (var comprobante in JsonConvert.DeserializeObject<List<Cpe>>(menuAnulaciones.listaCpeBoletasPorReprocesar))
+                        {
+                            AnulacionesService.reprocesarPorCpeBoletas(menuAnulaciones.fechaInicio, menuAnulaciones.fechaFinal, menuAnulaciones.empresa, comprobante);
+                        }
+                    }
+                    if (!string.Empty.Equals(menuAnulaciones.listaCpeRetePercePorReprocesar))
+                    {
+                        foreach (var comprobante in JsonConvert.DeserializeObject<List<Cpe>>(menuAnulaciones.listaCpeRetePercePorReprocesar))
+                        {
+                            AnulacionesService.reprocesarPorCpeRetePerce(menuAnulaciones.fechaInicio, menuAnulaciones.fechaFinal, menuAnulaciones.empresa, comprobante);
+                        }
+                    }
                 }
                 else
                 {                

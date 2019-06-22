@@ -95,6 +95,7 @@
                         <table id="table-boletas-id" class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>RUC</th>
                                     <th>COMPROBANTE</th>
                                     <th>SERIE</th>
@@ -107,6 +108,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @Html.HiddenFor(model => model.listaCpeBoletasPorReprocesar)
                                 @if (Model != null)
                                 {
                                     if (Model.listaCpe != null)
@@ -114,6 +116,7 @@
                                         foreach (WebApplication.Models.Cpe objCpe in Model.listaCpeBoletas)
                                         {
                                             <tr>
+                                                <td><div class="checkbox"><label><input type="checkbox" /></label></div></td>
                                                 <td>@objCpe.RUC.ToString()</td>
                                                 <td>@objCpe.Comprobante.ToString()</td>
                                                 <td>@objCpe.Serie.ToString()</td>
@@ -136,6 +139,7 @@
                         <table id="table-retenciones-percepciones-id" class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>RUC</th>
                                     <th>COMPROBANTE</th>
                                     <th>SERIE</th>
@@ -148,6 +152,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @Html.HiddenFor(model => model.listaCpeRetePercePorReprocesar)
                                 @if (Model != null)
                                 {
                                     if (Model.listaCpe != null)
@@ -155,6 +160,7 @@
                                         foreach (WebApplication.Models.Cpe objCpe in Model.listaCpeRetePerce)
                                         {
                                             <tr>
+                                                <td><div class="checkbox"><label><input type="checkbox" /></label></div></td>
                                                 <td>@objCpe.RUC.ToString()</td>
                                                 <td>@objCpe.Comprobante.ToString()</td>
                                                 <td>@objCpe.Serie.ToString()</td>

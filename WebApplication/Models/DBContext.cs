@@ -348,5 +348,61 @@ namespace WebApplication.Models
                 throw ex;
             }
         }
+
+
+        public static void ReprocesarPorCpeBoletas(string fechaInicio, string fechaFinal, string empresa, Cpe comprobante)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["suite-test"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string cmdText = "REPRO_BAJAS_RB";
+                    using (SqlCommand cmd = new SqlCommand(cmdText, connection))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@empresa", empresa);
+                        cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                        cmd.Parameters.AddWithValue("@fechafinal", fechaFinal);
+                        cmd.Parameters.AddWithValue("@serie", comprobante.Serie);
+                        cmd.Parameters.AddWithValue("@folio", comprobante.Correlativo);
+                        connection.Open();
+                        cmd.ExecuteReader();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public static void ReprocesarPorCpeRetePerce(string fechaInicio, string fechaFinal, string empresa, Cpe comprobante)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["suite-test"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string cmdText = "REPRO_BAJAS_RP";
+                    using (SqlCommand cmd = new SqlCommand(cmdText, connection))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@empresa", empresa);
+                        cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                        cmd.Parameters.AddWithValue("@fechafinal", fechaFinal);
+                        cmd.Parameters.AddWithValue("@serie", comprobante.Serie);
+                        cmd.Parameters.AddWithValue("@folio", comprobante.Correlativo);
+                        connection.Open();
+                        cmd.ExecuteReader();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
