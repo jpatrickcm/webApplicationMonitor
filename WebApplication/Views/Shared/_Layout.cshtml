@@ -54,6 +54,18 @@
             $('#form-anulaciones-id').submit();
         });
 
+
+        $('#form-envios-id input[name="reprocesar"]').on('click', function (e) {
+            e.preventDefault();
+            cargarListaReprocesar('table-factura-id');
+            listaAReprocesar('listaCpeEnviosPorReprocesar');
+            cargarListaReprocesar('table-boletas-id');
+            listaAReprocesar('listaCpeBoletasEnviosPorReprocesar');
+            cargarListaReprocesar('table-retenciones-percepciones-id');
+            listaAReprocesar('listaCpeRetePerceEnviosPorReprocesar');
+            $('#form-envios-id').submit();
+        });
+
         function listaAReprocesar(lista) {
             document.getElementById(lista).value = JSON.stringify(arrayListCpe);
             arrayListCpe = [];

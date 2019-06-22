@@ -404,5 +404,95 @@ namespace WebApplication.Models
                 throw ex;
             }
         }
+
+
+        public static void ReprocesarPorCpeEnvios(string fechaInicio, string fechaFinal, string empresa, Cpe comprobante)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["suite-test"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string cmdText = "REPRO_COMPROBANTES_FRP";
+                    using (SqlCommand cmd = new SqlCommand(cmdText, connection))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@empresa", empresa);
+                        cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                        cmd.Parameters.AddWithValue("@fechafinal", fechaFinal);
+                        cmd.Parameters.AddWithValue("@serie", comprobante.Serie);
+                        cmd.Parameters.AddWithValue("@folio", comprobante.Correlativo);
+                        connection.Open();
+                        cmd.ExecuteReader();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public static void ReprocesarPorCpeBoletasEnvios(string fechaInicio, string fechaFinal, string empresa, Cpe comprobante)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["suite-test"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string cmdText = "REPRO_COMPROBANTES_RB";
+                    using (SqlCommand cmd = new SqlCommand(cmdText, connection))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@empresa", empresa);
+                        cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                        cmd.Parameters.AddWithValue("@fechafinal", fechaFinal);
+                        cmd.Parameters.AddWithValue("@serie", comprobante.Serie);
+                        cmd.Parameters.AddWithValue("@folio", comprobante.Correlativo);
+                        connection.Open();
+                        cmd.ExecuteReader();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public static void ReprocesarPorCpeRetePerceEnvios(string fechaInicio, string fechaFinal, string empresa, Cpe comprobante)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["suite-test"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string cmdText = "REPRO_COMPROBANTES_RP";
+                    using (SqlCommand cmd = new SqlCommand(cmdText, connection))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@empresa", empresa);
+                        cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                        cmd.Parameters.AddWithValue("@fechafinal", fechaFinal);
+                        cmd.Parameters.AddWithValue("@serie", comprobante.Serie);
+                        cmd.Parameters.AddWithValue("@folio", comprobante.Correlativo);
+                        connection.Open();
+                        cmd.ExecuteReader();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+
+
+
     }
 }

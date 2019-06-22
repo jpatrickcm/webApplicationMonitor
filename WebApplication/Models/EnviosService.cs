@@ -9,6 +9,20 @@ namespace WebApplication.Models
     public class EnviosService
     {
 
+        public static void reprocesarPorCpeEnvios(string fechaInicio, string fechaFinal, string empresa, Cpe comprobante)
+        {
+            DBContext.ReprocesarPorCpeEnvios(fechaInicio, fechaFinal, empresa, comprobante);
+        }
+
+        public static void reprocesarPorCpeBoletasEnvios(string fechaInicio, string fechaFinal, string empresa, Cpe comprobante)
+        {
+            DBContext.ReprocesarPorCpeBoletasEnvios(fechaInicio, fechaFinal, empresa, comprobante);
+        }
+
+        public static void reprocesarPorCpeRetePerceEnvios(string fechaInicio, string fechaFinal, string empresa, Cpe comprobante)
+        {
+            DBContext.ReprocesarPorCpeRetePerceEnvios(fechaInicio, fechaFinal, empresa, comprobante);
+        }
 
         public static List<Cpe> reporteEnvios(string fechaInicio, string fechaFinal, string empresa)
         {

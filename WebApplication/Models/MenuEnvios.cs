@@ -23,5 +23,9 @@ namespace WebApplication.Models
         public List<Cpe> listaCpe { get; set; }
         public List<Cpe> listaCpeBoletas { get; set; }
         public List<Cpe> listaCpeRetePerce { get; set; }
+
+        public string listaCpeEnviosPorReprocesar { get; set; }
+        public string listaCpeBoletasEnviosPorReprocesar { get; set; }
+        public string listaCpeRetePerceEnviosPorReprocesar { get; set; }
     }
 }
