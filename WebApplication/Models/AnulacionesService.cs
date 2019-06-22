@@ -9,6 +9,11 @@ namespace WebApplication.Models
     public class AnulacionesService
     {
 
+        public static void reprocesarPorCpe(string fechaInicio, string fechaFinal, string empresa, Cpe comprobante)
+        {
+            DBContext.ReprocesarPorCpe(fechaInicio, fechaFinal, empresa, comprobante);
+        }
+
         public static List<Cpe> reporteAnulaciones(string fechaInicio, string fechaFinal, string empresa)
         {
             List<Cpe> listado = DBContext.ConsultaCpeAnulaciones(fechaInicio, fechaFinal, empresa);

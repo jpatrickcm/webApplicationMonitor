@@ -39,5 +39,52 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+
+
+        $('#form-anulaciones-id input[name="reprocesar"]').on('click', function (e) {
+            e.preventDefault();
+            cargarListaReprocesar('table-factura-id');
+            listaAReprocesar('listaCpe_Reprocesar');
+            $("#form-anulaciones-id").submit();
+        });
+
+        function listaAReprocesar(lista) {
+            document.getElementById(lista).value = JSON.stringify(arrayListCpe);
+            arrayListCpe = [];
+        }
+
+        function cargarListaReprocesar(idTabla) {
+            $('#' + idTabla + ' > tbody  > tr').each(function () {
+                cleanCpe();
+                if ($('td:eq(0) input', this).eq(0)[0].checked) {
+                    Cpe.RUC = $('td:eq(1) ', this).text();
+                    Cpe.Serie = $('td:eq(3) ', this).text();
+                    Cpe.Correlativo = $('td:eq(4) ', this).text();
+                    Cpe.CodigoEmpresa = $('td:eq(8) ', this).text();
+                    arrayListCpe.push(Cpe);
+                }
+            });
+        }
+
+        function cleanCpe() {
+            Cpe = {
+                'RUC': '',
+                'Serie': '',
+                'Correlativo': '',
+                'CodigoEmpresa': ''
+            };
+        }
+        let arrayListCpe = [];
+
+        let Cpe = {
+            'RUC': '',
+            'Serie': '',
+            'Correlativo': '',
+            'CodigoEmpresa': ''
+        };
+
+    </script>
 </body>
 </html>
