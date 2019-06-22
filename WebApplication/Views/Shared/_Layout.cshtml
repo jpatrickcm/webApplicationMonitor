@@ -40,14 +40,14 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-    <script type="text/javascript">
+    <script type="text/javascript" >
 
 
         $('#form-anulaciones-id input[name="reprocesar"]').on('click', function (e) {
             e.preventDefault();
             cargarListaReprocesar('table-factura-id');
-            listaAReprocesar('listaCpe_Reprocesar');
-            $("#form-anulaciones-id").submit();
+            listaAReprocesar('listaCpePorReprocesar');
+            $('#form-anulaciones-id').submit();
         });
 
         function listaAReprocesar(lista) {

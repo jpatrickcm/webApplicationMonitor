@@ -51,6 +51,7 @@
                         <table id="table-factura-id" class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>RUC</th>
                                     <th>COMPROBANTE</th>
                                     <th>SERIE</th>
@@ -63,7 +64,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @Html.HiddenFor(model => model.listaCpePorReprocesar)
                                 @if (Model != null)
                                 {
                                     if (Model.listaCpe != null)
@@ -71,6 +72,7 @@
                                         foreach (WebApplication.Models.Cpe objCpe in Model.listaCpe)
                                         {
                                             <tr>
+                                                <td><div class="checkbox"><label><input type="checkbox" /></label></div></td>
                                                 <td>@objCpe.RUC.ToString()</td>
                                                 <td>@objCpe.Comprobante.ToString()</td>
                                                 <td>@objCpe.Serie.ToString()</td>
@@ -223,7 +225,9 @@
         </div>
 
         <div class="row text-center">
-            <input class="btn btn-info" type="submit" name="reprocesar" value="Reprocesar" />
+            <div class="form-group">
+                <input class="btn btn-info" type="submit" name="reprocesar" value="Reprocesar" />
+            </div>
         </div>
 
     }

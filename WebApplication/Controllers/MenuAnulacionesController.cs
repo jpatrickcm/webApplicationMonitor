@@ -23,10 +23,13 @@ namespace WebApplication.Controllers
             listadoEmpresa();
             if ( menuAnulaciones.fechaInicio != null && menuAnulaciones.fechaFinal != null && menuAnulaciones.empresa != null)
             {
-                if (Request.Form["reprocesar"]!= null)
+                if ( Request.Form["buscar"] == null )
                 {
                     var lista = JsonConvert.DeserializeObject<List<Cpe>>(menuAnulaciones.listaCpePorReprocesar);
-                    AnulacionesService.reprocesarPorCpe(menuAnulaciones.fechaInicio, menuAnulaciones.fechaFinal, menuAnulaciones.empresa, lista);
+                    foreach (var comprobante in lista)
+                    {
+                        AnulacionesService.reprocesarPorCpe(menuAnulaciones.fechaInicio, menuAnulaciones.fechaFinal, menuAnulaciones.empresa, comprobante);
+                    }
                 }
                 else
                 {                

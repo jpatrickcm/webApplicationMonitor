@@ -324,7 +324,6 @@ namespace WebApplication.Models
 
         public static void ReprocesarPorCpe(string fechaInicio, string fechaFinal, string empresa, Cpe comprobante)
         {
-
             try
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["suite-test"].ConnectionString;
@@ -340,11 +339,7 @@ namespace WebApplication.Models
                         cmd.Parameters.AddWithValue("@serie", comprobante.Serie);
                         cmd.Parameters.AddWithValue("@folio", comprobante.Correlativo);
                         connection.Open();
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            { }
-                        }
+                        cmd.ExecuteReader();
                     }
                 }
             }
@@ -352,8 +347,6 @@ namespace WebApplication.Models
             {
                 throw ex;
             }
-
         }
-
     }
 }
