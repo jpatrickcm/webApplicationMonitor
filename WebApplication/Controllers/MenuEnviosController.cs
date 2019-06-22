@@ -27,20 +27,20 @@ namespace WebApplication.Controllers
                     var lista = JsonConvert.DeserializeObject<List<Cpe>>(menuEnvios.listaCpeEnviosPorReprocesar);
                     foreach (var comprobante in lista)
                     {
-                        AnulacionesService.reprocesarPorCpe(menuEnvios.fechaInicio, menuEnvios.fechaFinal, menuEnvios.empresa, comprobante);
+                        EnviosService.reprocesarPorCpeEnvios(menuEnvios.fechaInicio, menuEnvios.fechaFinal, menuEnvios.empresa, comprobante);
                     }
                     if (!string.Empty.Equals(menuEnvios.listaCpeBoletasEnviosPorReprocesar))
                     {
                         foreach (var comprobante in JsonConvert.DeserializeObject<List<Cpe>>(menuEnvios.listaCpeBoletasEnviosPorReprocesar))
                         {
-                            AnulacionesService.reprocesarPorCpeBoletas(menuEnvios.fechaInicio, menuEnvios.fechaFinal, menuEnvios.empresa, comprobante);
+                            EnviosService.reprocesarPorCpeBoletasEnvios(menuEnvios.fechaInicio, menuEnvios.fechaFinal, menuEnvios.empresa, comprobante);
                         }
                     }
                     if (!string.Empty.Equals(menuEnvios.listaCpeRetePerceEnviosPorReprocesar))
                     {
                         foreach (var comprobante in JsonConvert.DeserializeObject<List<Cpe>>(menuEnvios.listaCpeRetePerceEnviosPorReprocesar))
                         {
-                            AnulacionesService.reprocesarPorCpeRetePerce(menuEnvios.fechaInicio, menuEnvios.fechaFinal, menuEnvios.empresa, comprobante);
+                            EnviosService.reprocesarPorCpeRetePerceEnvios(menuEnvios.fechaInicio, menuEnvios.fechaFinal, menuEnvios.empresa, comprobante);
                         }
                     }
                 }
