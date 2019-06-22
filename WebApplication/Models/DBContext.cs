@@ -181,5 +181,146 @@ namespace WebApplication.Models
 
             return lista;
         }
+
+
+        public static List<Cpe> ConsultaCpeEnvios(string fechaInicio, string fechaFinal, string empresa)
+        {
+            List<Cpe> lista = null;
+            Cpe cpeTmp = null;
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["suite-test"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string cmdText = "VER_COMPROBANTES_FRP";
+                    using (SqlCommand cmd = new SqlCommand(cmdText, connection))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@empresa", empresa);
+                        cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                        cmd.Parameters.AddWithValue("@fechafinal", fechaFinal);
+                        connection.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            lista = new List<Cpe>();
+                            while (reader.Read())
+                            {
+                                cpeTmp = new Cpe();
+                                cpeTmp.RUC = reader["RUC"].ToString();
+                                cpeTmp.Comprobante = reader["COMPROBANTE"].ToString();
+                                cpeTmp.Serie = reader["SERIE"].ToString();
+                                cpeTmp.Correlativo = reader["CORRELATIVO"].ToString();
+                                cpeTmp.FechaEmision = reader["FECHA_EMISION"].ToString();
+                                cpeTmp.FechaCarga = reader["FECHA_CARGA"].ToString();
+                                cpeTmp.Estado = reader["ESTADO"].ToString();
+                                cpeTmp.CodigoEmpresa = reader["NUMERO_EMPRESA"].ToString();
+                                cpeTmp.Mensaje = reader["MENSAJE"].ToString();
+                                lista.Add(cpeTmp);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return lista;
+        }
+
+        public static List<Cpe> consultaCpeBoletasEnvios(string fechaInicio, string fechaFinal, string empresa)
+        {
+            List<Cpe> lista = null;
+            Cpe cpeTmp = null;
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["suite-test"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string cmdText = "VER_COMPROBANTES_RB";
+                    using (SqlCommand cmd = new SqlCommand(cmdText, connection))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@empresa", empresa);
+                        cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                        cmd.Parameters.AddWithValue("@fechafinal", fechaFinal);
+                        connection.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            lista = new List<Cpe>();
+                            while (reader.Read())
+                            {
+                                cpeTmp = new Cpe();
+                                cpeTmp.RUC = reader["RUC"].ToString();
+                                cpeTmp.Comprobante = reader["COMPROBANTE"].ToString();
+                                cpeTmp.Serie = reader["SERIE"].ToString();
+                                cpeTmp.Correlativo = reader["CORRELATIVO"].ToString();
+                                cpeTmp.FechaEmision = reader["FECHA_EMISION"].ToString();
+                                cpeTmp.FechaCarga = reader["FECHA_CARGA"].ToString();
+                                cpeTmp.Estado = reader["ESTADO"].ToString();
+                                cpeTmp.CodigoEmpresa = reader["NUMERO_EMPRESA"].ToString();
+                                cpeTmp.Mensaje = reader["MENSAJE"].ToString();
+                                lista.Add(cpeTmp);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return lista;
+        }
+
+        public static List<Cpe> consultaCpeRetePerceEnvios(string fechaInicio, string fechaFinal, string empresa)
+        {
+            List<Cpe> lista = null;
+            Cpe cpeTmp = null;
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["suite-test"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string cmdText = "VER_COMPROBANTES_RP";
+                    using (SqlCommand cmd = new SqlCommand(cmdText, connection))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@empresa", empresa);
+                        cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                        cmd.Parameters.AddWithValue("@fechafinal", fechaFinal);
+                        connection.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            lista = new List<Cpe>();
+                            while (reader.Read())
+                            {
+                                cpeTmp = new Cpe();
+                                cpeTmp.RUC = reader["RUC"].ToString();
+                                cpeTmp.Comprobante = reader["COMPROBANTE"].ToString();
+                                cpeTmp.Serie = reader["SERIE"].ToString();
+                                cpeTmp.Correlativo = reader["CORRELATIVO"].ToString();
+                                cpeTmp.FechaEmision = reader["FECHA_EMISION"].ToString();
+                                cpeTmp.FechaCarga = reader["FECHA_CARGA"].ToString();
+                                cpeTmp.Estado = reader["ESTADO"].ToString();
+                                cpeTmp.CodigoEmpresa = reader["NUMERO_EMPRESA"].ToString();
+                                cpeTmp.Mensaje = reader["MENSAJE"].ToString();
+                                lista.Add(cpeTmp);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return lista;
+        }
+
+
     }
 }

@@ -132,8 +132,10 @@
     <Compile Include="Models\Cpe.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Empresa.cs" />
+    <Compile Include="Models\EnviosService.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\MenuAnulaciones.cs" />
+    <Compile Include="Models\MenuEnvios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

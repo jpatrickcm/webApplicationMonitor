@@ -6,31 +6,34 @@ using System.Web;
 
 namespace WebApplication.Models
 {
-    public class AnulacionesService
+    public class EnviosService
     {
 
-        public static List<Cpe> reporteAnulaciones(string fechaInicio, string fechaFinal, string empresa)
+
+        public static List<Cpe> reporteEnvios(string fechaInicio, string fechaFinal, string empresa)
         {
-            List<Cpe> listado = DBContext.ConsultaCpeAnulaciones(fechaInicio, fechaFinal, empresa);
+            List<Cpe> listado = DBContext.ConsultaCpeEnvios(fechaInicio, fechaFinal, empresa);
             return listado;
         }
 
-        public static List<Cpe> consultaBoletasAnulaciones(string fechaInicio, string fechaFinal, string empresa)
+        public static List<Cpe> consultaBoletasEnvios(string fechaInicio, string fechaFinal, string empresa)
         {
-            List<Cpe> listado = DBContext.consultaCpeBoletasAnulaciones(fechaInicio, fechaFinal, empresa);
+            List<Cpe> listado = DBContext.consultaCpeBoletasEnvios(fechaInicio, fechaFinal, empresa);
             return listado;
         }
-        public static List<Cpe> consultaRetePerceAnulaciones(string fechaInicio, string fechaFinal, string empresa)
+        public static List<Cpe> consultaRetePerceEnvios(string fechaInicio, string fechaFinal, string empresa)
         {
-            List<Cpe> listado = DBContext.consultaCpeRetePerceAnulaciones(fechaInicio, fechaFinal, empresa);
+            List<Cpe> listado = DBContext.consultaCpeRetePerceEnvios(fechaInicio, fechaFinal, empresa);
             return listado;
         }
+
+
 
         public static SelectList ListadoEmpresas()
         {
             List<SelectListItem> listaSelectListItem = new List<SelectListItem>();
             List<Empresa> listaEmpresa = DBContext.consultaEmpresas();
-            if (listaEmpresa.Count>0)
+            if (listaEmpresa.Count > 0)
             {
                 foreach (Empresa emp in listaEmpresa)
                 {
@@ -44,5 +47,7 @@ namespace WebApplication.Models
             SelectList selectList = new SelectList(listaSelectListItem, "Value", "Text");
             return selectList;
         }
+
+
     }
 }
